@@ -163,6 +163,8 @@ public class Canvas extends JPanel implements ActionListener, MouseMotionListene
 		}
 		ball.setX(WIDTH/2);
 		ball.setY((HEIGHT/2) + 80);
+		ball.setDX(0);
+		ball.setDY(0);
 		player.setLives(player.getLives() - 1);
 		player.setScore(player.getScore() - 1000);
 	}
@@ -228,6 +230,10 @@ public class Canvas extends JPanel implements ActionListener, MouseMotionListene
 	@Override public void mouseDragged(MouseEvent e){}
 	
 	@Override public void mouseClicked(MouseEvent e){
+		if(ball.getDX() == 0 && ball.getDY() == 0){
+			ball.setDX(5);
+			ball.setDY(5);
+		}
 		if(time.isRunning()){
 			return;
 		}
